@@ -1,0 +1,234 @@
+@charset "utf-8";
+
+*{
+    margin: 0; padding: 0; box-sizing: border-box;
+     font-size: 16px;
+    line-height: 1.2;
+    font-family: "DM Sans", sans-serif;
+    font-weight: normal;
+}
+
+#layout{
+    overflow: hidden;
+    max-width: 1440px; margin: auto;
+    width: 100%; min-height: 100vh;
+    position: relative;
+    perspective: 1000px;
+   /*  border: 1px solid red; */
+}
+
+/* 큐브 스타일링 */
+.cube{
+    padding: 0 20px;
+    position: absolute;
+    display:flex;
+    left: 0; right: 0;
+    top: 50%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    transform-style:preserve-3d;
+    transform: rotateX(-30deg) rotateY(30deg);
+    transition: transform 1s;
+}
+/* 각 면 */
+.cube_contents{
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    max-width: 350px;
+    max-height: 350px;
+    background:white;
+      box-shadow: 
+        0 3px 10px rgba(55, 55, 55, 0.4),  /* 깊은 그림자 */
+        0 2px 2px rgba(101, 101, 101, 0.05) inset; /* 살짝 안쪽 밝기 */
+    overflow: hidden;
+}
+.cube_contents>img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+
+#cube_content_1{
+    transform: rotateY(0deg) translateZ(175px);
+}
+#cube_content_2{
+    transform: rotateY(90deg) translateZ(175px);
+}
+#cube_content_3{
+    transform: rotateY(180deg) translateZ(175px);
+}
+#cube_content_4{
+    transform: rotateY(-90deg) translateZ(175px);
+}
+#cube_content_5{
+    transform: rotateX(90deg) translateZ(175px);
+}
+#cube_content_6{
+    transform: rotateX(-90deg) translateZ(175px);
+}
+
+/* 정보 사진 맵 */
+.info_map{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    z-index: 888;
+    display: block;
+    transition: none;
+}
+.info_map>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 2px 15px rgb(34, 34, 34);
+}
+
+/*정보 제품명 맵*/
+.alt_title{
+    position: absolute;
+    width: 200px;
+    z-index: 10;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px black;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 200px;
+    margin-top: 5px;
+}
+
+
+/* 반응형 */
+@media(min-width:1441px){
+.cube_contents{
+    max-width: 400px;
+    max-height: 400px;
+}
+
+#cube_content_1{
+    transform: rotateY(0deg) translateZ(200px);
+}
+#cube_content_2{
+    transform: rotateY(90deg) translateZ(200px);
+}
+#cube_content_3{
+    transform: rotateY(180deg) translateZ(200px);
+}
+#cube_content_4{
+    transform: rotateY(-90deg) translateZ(200px);
+}
+#cube_content_5{
+    transform: rotateX(90deg) translateZ(200px);
+}
+#cube_content_6{
+    transform: rotateX(-90deg) translateZ(200px);
+}
+
+}
+/* ~1024px까지 적용 => 소형 랩탑 기기 */
+@media(max-width:1024px){
+    .cube_contents{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#cube_content_1{
+    transform: rotateY(0deg) translateZ(150px);
+}
+#cube_content_2{
+    transform: rotateY(90deg) translateZ(150px);
+}
+#cube_content_3{
+    transform: rotateY(180deg) translateZ(150px);
+}
+#cube_content_4{
+    transform: rotateY(-90deg) translateZ(150px);
+}
+#cube_content_5{
+    transform: rotateX(90deg) translateZ(150px);
+}
+#cube_content_6{
+    transform: rotateX(-90deg) translateZ(150px);
+}
+
+
+.info_map{
+    position: absolute;
+    width: 140px;
+    height: 140px;
+}
+
+}
+
+/* ~768px까지 적용=> 태블릿 기기 */
+@media(max-width:768px){
+.cube_contents{
+    max-width: 280px;
+    max-height: 280px;
+}
+
+#cube_content_1{
+    transform: rotateY(0deg) translateZ(140px);
+}
+#cube_content_2{
+    transform: rotateY(90deg) translateZ(140px);
+}
+#cube_content_3{
+    transform: rotateY(180deg) translateZ(140px);
+}
+#cube_content_4{
+    transform: rotateY(-90deg) translateZ(140px);
+}
+#cube_content_5{
+    transform: rotateX(90deg) translateZ(140px);
+}
+#cube_content_6{
+    transform: rotateX(-90deg) translateZ(140px);
+}
+.info_map{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    
+}
+}
+
+/* 모바일  */
+/* ~480px까지 적용 => 모바일 기기 */
+@media(max-width:480px){
+    .cube_contents{
+    width: 200px;
+    height: 200px;
+}
+
+#cube_content_1{
+    transform: rotateY(0deg) translateZ(100px);
+}
+#cube_content_2{
+    transform: rotateY(90deg) translateZ(100px);
+}
+#cube_content_3{
+    transform: rotateY(180deg) translateZ(100px);
+}
+#cube_content_4{
+    transform: rotateY(-90deg) translateZ(100px);
+}
+#cube_content_5{
+    transform: rotateX(90deg) translateZ(100px);
+}
+#cube_content_6{
+    transform: rotateX(-90deg) translateZ(100px);
+}
+.info_map{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+}
